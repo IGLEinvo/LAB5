@@ -10,12 +10,12 @@ using namespace std;
 //Реалізувати метод для вибору топінгу, який залежить від смаку інгредієнтів(на свій смак)).
 //Реалізувати метод для перемішування інгредієнтів.
 
-enum tasteType {
+enum TasteType {
     SWEET,SOUR,NEUTRAL
 };
 
 enum ToppingType {
-    SWEETs, SOURs, NEUTRALs
+    SWEETS, SOURS, NEUTRALS
 };
 
 class Fruit {
@@ -23,53 +23,53 @@ private:
     string name;
     double size;
     string color;
-    tasteType taste;
+    TasteType taste;
 public:
 
-    Fruit(string name, double size, string color, tasteType taste)
+    Fruit(string name, double size, string color, TasteType taste)
     {
         this->name = name;
         this->size = size;
         this->color = color;
         this->taste = taste;
     }
-    string GetName() {
+    string get_name() {
         return name;
     }
-    double GetSize() {
+    double get_size() {
         return size;
     }
-    string GetColor(){
+    string get_color(){
         return color;
     }
-    tasteType GetType() {
+    TasteType get_type() {
         return taste;
     }
-    void Print(){
+    void print_size_and_name_and_color_and_taste(){
         cout << "Назва: " << name << "\nРозмір: " << size << "\nКолір: " << color << "\nСмак: " << taste << "\n" << endl;
     }
 
 };
 
-class FruitSalat {
+class FruitSalad {
     ToppingType type;
     Fruit* fruits;
-    FruitSalat(Fruit* fruits)
+    FruitSalad(Fruit* fruits)
     {
         this->type = type;
         this->fruits = fruits;
     }
     void chooseTopping()
     {
-        if (fruits->GetType() == SWEET)
+        if (fruits->get_type() == SWEET)
         {
-            type = NEUTRALs;
+            type = NEUTRALS;
         }
-        else if(fruits->GetType() == SOUR) {
-            type = SWEETs;
+        else if(fruits->get_type() == SOUR) {
+            type = SWEETS;
         }
-        else if(fruits->GetType() == NEUTRAL) {
-            type = SOURs;
+        else if(fruits->get_type() == NEUTRAL) {
+            type = SOURS;
 
         }
     }
